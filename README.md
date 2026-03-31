@@ -1,18 +1,47 @@
-# New Jenkins server test with terraform deployment and triggers
+# Jenkins Pipeline Audit (Terraform AWS S3 Pipeline) Marvin Evins
 
-## Jenkinsfile
+---
 
-A simple declarative Jenkinsfile
-- Clones git repo 
-- Binds AWS IAM user creds in terraform stages with AWS Creds plugin
-- Stages for terraform init and apply 
-- Destroy stage using user input 
+## Armageddon Repo Links
 
-## Terraform script 
-- A simple AWS S3 bucket is deployed
-- State file is stored in S3 backend 
-- S3 bucket name uniqueness is guranteed 
+- [Armageddon Repo Link](#)
+- [Repo Validation](#)
 
-## User data
-EC2 startup script to bootstrap Jenkins server
+---
 
+##  Pipeline Artifacts (CI/CD Configuration)
+
+- [GitHub Webhook Configuration](#)
+- [Jenkins Webhook Trigger Enabled](#)
+
+---
+
+##  Jenkins Execution
+
+- [Jenkins Terraform Deployment Success](#)
+- [Jenkins Pipeline Execution Console](#)
+
+---
+
+##  Jenkins Pipeline Execution Log
+
+- [Jenkins Pipeline Console Output](#)
+
+---
+
+##  S3 Object Verification
+
+The S3 bucket is organized with `pipeline/` and `audit/` prefixes.
+
+###  Bucket Structure
+
+- [S3 Bucket Root](#)
+- [Pipeline Artifacts](#)
+- [Audit Artifacts](#)
+
+###  CLI Verification
+
+- [S3 Audit Screenshot](#)
+- [S3 Audit JSON](#)
+
+---
