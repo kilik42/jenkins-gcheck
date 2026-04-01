@@ -11,7 +11,7 @@
 ##  Pipeline Artifacts (CI/CD Configuration)
 
 - [GitHub Webhook Configuration](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/pipeline/webhooks.png)
-- [Jenkins Webhook Trigger Enabled](#)
+- [Jenkins Webhook Trigger Enabled]()
 
 ---
 
