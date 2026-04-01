@@ -40,7 +40,7 @@ The S3 bucket is organized with `pipeline/` and `audit/` prefixes.
 
 ###  CLI Verification
 
-- [S3 Audit Screenshot](#)
-- [S3 Audit JSON](#)
+- [S3 Audit Screenshot](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/S3+Audit+Screenshot.png)
+- [S3 Audit JSON](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/S3+Audit+JSON.png)
 
 ---
