@@ -34,9 +34,9 @@ The S3 bucket is organized with `pipeline/` and `audit/` prefixes.
 
 ###  Bucket Structure
 
-- [S3 Bucket Root](#)
-- [Pipeline Artifacts](#)
-- [Audit Artifacts](#)
+- [S3 Bucket Root](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/S3+Bucket+Root.png)
+- [Pipeline Artifacts](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/Pipeline+Artifacts.png)
+- [Audit Artifacts](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/Audit+Artifacts.png)
 
 ###  CLI Verification
 
