@@ -4,7 +4,7 @@
 
 ## Armageddon Repo Links
 
-- [Armageddon Repo Link]([https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/pipeline/repolinks.md](https://jenkins-bucket-20260331031446811800000001.s3.amazonaws.com/pipeline/repolinks.md?v=2))
+- [Armageddon Repo Link]([https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/pipeline/repolinks.md](https://jenkins-bucket-20260331031446811800000001.s3.amazonaws.com/pipeline/repolinks.md?v=2)
 - [Repo Validation](#)
 
 ---
