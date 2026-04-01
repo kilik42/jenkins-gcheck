@@ -4,7 +4,7 @@
 
 ## Armageddon Repo Links
 
-- [Armageddon Repo Link](https://github.com/jdpayne68/class-7-armageddon-tko-group)
+- [Armageddon Repo Link](https://jenkins-bucket-20260331031446811800000001.s3.amazonaws.com/pipeline/repolinks.md?v=2)
 - [Repo Validation](https://github.com/kilik42/armageddon_labs_2026)
 ---
 
