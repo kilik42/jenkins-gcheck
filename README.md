@@ -6,7 +6,7 @@
 
 - [Armageddon Repo Link](https://jenkins-bucket-20260331031446811800000001.s3.amazonaws.com/pipeline/repolinks.md?v=2)
 - [Repo Validation](https://github.com/kilik42/armageddon_labs_2026)
-- [public_bucket](jenkins-bucket-20260331031446811800000001.s3-website-us-east-1.amazonaws.com)
+- [public_bucket](http://jenkins-bucket-20260331031446811800000001.s3-website-us-east-1.amazonaws.com)
 ---
 
 ##  Pipeline Artifacts (CI/CD Configuration)
