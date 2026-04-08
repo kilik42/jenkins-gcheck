@@ -1,7 +1,7 @@
 # This Terraform configuration creates an S3 bucket configured for static website hosting, with public read access to the objects. It includes ownership controls and a sample index.html file.
 resource "aws_s3_bucket" "frontend" {
-  bucket_prefix  = "jenkins-bucket-"
-  force_destroy  = true
+  bucket_prefix = "jenkins-bucket-"
+  force_destroy = true
 
   tags = {
     Name = "Jenkins Bucket"
@@ -52,6 +52,8 @@ resource "aws_s3_object" "index" {
 <body>
   <h1>Jenkins GCheck Deployment Successful</h1>
   <p>This bucket was provisioned by Terraform.</p>
+  <p>Artifacts are uploaded into S3 folders as part of this deployment.</p>
+
 </body>
 </html>
 EOF
@@ -79,6 +81,47 @@ resource "aws_s3_bucket_policy" "public_read" {
 
   depends_on = [aws_s3_bucket_public_access_block.frontend]
 }
+# UPLOAD ALL PNG IMAGES FROM LOCAL FOLDERS
+# local file:  s3_objects/Audit Artifacts.png
+# S3 object:   Audit Artifacts.png
+resource "aws_s3_object" "images" {
+  #
+  for_each = fileset("${path.module}/s3_objects", "*.png")
+
+  bucket = aws_s3_bucket.frontend.id
+  key    = each.value
+  source = "${path.module}/s3_objects/${each.value}"
+
+  # This helps S3 know the files are images.
+  content_type = "image/png"
+
+  # This makes Terraform notice when the image file changes.
+  etag = filemd5("${path.module}/s3_objects/${each.value}")
+
+  depends_on = [aws_s3_bucket_website_configuration.frontend]
+}
+
+
+# OPTIONAL: UPLOAD TXT FILES TOO
+# This uploads any .txt files from the same folder.
+resource "aws_s3_object" "text_files" {
+  for_each = fileset("${path.module}/s3_objects", "*.txt")
+
+  bucket = aws_s3_bucket.frontend.id
+  key    = each.value
+  source = "${path.module}/s3_objects/${each.value}"
+
+  content_type = "text/plain"
+  etag         = filemd5("${path.module}/s3_objects/${each.value}")
+
+  depends_on = [aws_s3_bucket_website_configuration.frontend]
+}
+
+
+
+
+
+
 
 # Output the bucket name and website URL
 output "bucket_name" {
