@@ -81,7 +81,7 @@ resource "aws_s3_bucket_policy" "public_read" {
 
   depends_on = [aws_s3_bucket_public_access_block.frontend]
 }
-# UPLOAD ALL PNG IMAGES FROM LOCAL FOLDERS
+# Upload all png files from s3 object folder
 # local file:  s3_objects/Audit Artifacts.png
 # S3 object:   Audit Artifacts.png
 resource "aws_s3_object" "images" {
