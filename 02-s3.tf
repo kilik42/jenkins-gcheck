@@ -102,7 +102,7 @@ resource "aws_s3_object" "images" {
 }
 
 
-# OPTIONAL: UPLOAD TXT FILES TOO
+# OPTIONAL: 
 # This uploads any .txt files from the same folder.
 resource "aws_s3_object" "text_files" {
   for_each = fileset("${path.module}/s3_objects", "*.txt")
