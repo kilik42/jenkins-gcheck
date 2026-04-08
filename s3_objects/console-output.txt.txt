@@ -105,3 +105,32 @@ Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
 [Pipeline] {
 [Pipeline] input
 Input requested
+Pausing (shutting down)
+Resuming build at Sat Apr 04 22:28:36 UTC 2026 after Jenkins restart
+Ready to run at Sat Apr 04 22:28:36 UTC 2026
+Pausing (shutting down)
+Resuming build at Wed Apr 08 23:10:07 UTC 2026 after Jenkins restart
+Ready to run at Wed Apr 08 23:10:07 UTC 2026
+Approved by marvin evins
+[Pipeline] echo
+Skipping destroy
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Pipeline finished.
+[Pipeline] echo
+Terraform deployment successful.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
