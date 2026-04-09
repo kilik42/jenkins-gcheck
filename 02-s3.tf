@@ -44,16 +44,39 @@ resource "aws_s3_object" "index" {
   content_type = "text/html"
   content      = <<EOF
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jenkins GCheck</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenkins GCheck - Armageddon Repositories</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #eee; }
+        h2 { color: #34495e; margin-top: 30px; }
+        .repo-link { background: #f4f4f4; padding: 10px; border-radius: 5px; display: block; word-break: break-all; }
+        .status { color: green; font-weight: bold; }
+    </style>
 </head>
 <body>
-  <h1>Jenkins GCheck Deployment Successful</h1>
-  <p>This bucket was provisioned by Terraform.</p>
-  <p>Artifacts are uploaded into S3 folders as part of this deployment.</p>
+    <h1>Jenkins GCheck Deployment Successful</h1>
+    <p class="status">✓ This bucket was provisioned by Terraform.</p>
+    
+    <hr>
 
+    <h1>Armageddon Repositories</h1>
+
+    <h2>T.K.O. (Tetsuzai Kube Ouroboros) – Armageddon Group Repo</h2>
+    <a class="repo-link" href="https://github.com/jdpayne68/class-7-armageddon-tko-group">
+        https://github.com/jdpayne68/class-7-armageddon-tko-group
+    </a>
+
+    <h2>Marvin Evins kilik42 Armageddon Labs Repo</h2>
+    <a class="repo-link" href="https://github.com/kilik42/armageddon_labs_2026">
+        https://github.com/kilik42/armageddon_labs_2026
+    </a>
+
+    <hr>
+    <p><small>Artifacts and images are uploaded into S3 folders as part of this deployment.</small></p>
 </body>
 </html>
 EOF
