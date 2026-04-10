@@ -4,7 +4,7 @@
 
 ## Armageddon Repo Links
 
-- [Armageddon Repo Link](https://jenkins-bucket-20260331031446811800000001.s3-website-us-east-1.amazonaws.com)
+- [Armageddon Repo Link](http://jenkins-bucket-20260331031446811800000001.s3-website-us-east-1.amazonaws.com/)
 - [Repo Validation](https://github.com/kilik42/armageddon_labs_2026)
 - [public_bucket](http://jenkins-bucket-20260331031446811800000001.s3-website-us-east-1.amazonaws.com)
 ---
