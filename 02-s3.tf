@@ -22,9 +22,9 @@ resource "aws_s3_bucket_public_access_block" "frontend" {
   bucket = aws_s3_bucket.frontend.id
 
   # The following settings allow public access to the bucket for website hosting. Adjust these settings as needed for your security requirements.
-  block_public_acls       = false # Allow public ACLs
-  block_public_policy     = false # Allow public policies
-  ignore_public_acls      = false # Do not ignore public ACLs
+  block_public_acls       = false # this allows public ACLs, which is necessary for website hosting
+  block_public_policy     = false # this allows public bucket policies, which is necessary for website hosting
+  ignore_public_acls      = false # I need to allow public ACLs for the website hosting, so I set this to false
   restrict_public_buckets = false # Do not restrict public buckets
 }
 
@@ -59,7 +59,7 @@ resource "aws_s3_object" "index" {
 </head>
 <body>
     <h1>Jenkins GCheck Deployment Successful</h1>
-    <p class="status">✓ This bucket was provisioned by Terraform.</p>
+    <p class="status">✓ This bucket was provisioned by Marvin Evins</p>
     
     <hr>
 
@@ -81,6 +81,7 @@ resource "aws_s3_object" "index" {
 </html>
 EOF
 
+# This ensures the website configuration is applied before uploading the index.html file.
   depends_on = [aws_s3_bucket_website_configuration.frontend]
 }
 
@@ -91,12 +92,14 @@ resource "aws_s3_bucket_policy" "public_read" {
 
   policy = jsonencode({
     Version = "2012-10-17"
+    #setting the policy to allow public read access to all objects in the bucket
     Statement = [
       {
         Sid       = "PublicReadGetObject"
         Effect    = "Allow"
         Principal = "*"
         Action    = ["s3:GetObject"]
+        #frontend arn with /* allows public read access to all objects in the bucket
         Resource  = "${aws_s3_bucket.frontend.arn}/*"
       }
     ]
@@ -127,6 +130,7 @@ resource "aws_s3_object" "images" {
 
 # OPTIONAL: 
 # This uploads any .txt files from the same folder.
+# I am uploading .txt files because I have some text files with notes and output from the labs that I want to be able to access from the website. 
 resource "aws_s3_object" "text_files" {
   for_each = fileset("${path.module}/s3_objects", "*.txt")
 
