@@ -18,11 +18,11 @@ Fetching upstream changes from https://github.com/kilik42/jenkins-gcheck.git
  > git --version # 'git version 2.50.1'
  > git fetch --tags --force --progress -- https://github.com/kilik42/jenkins-gcheck.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
-Checking out Revision ec58a67b6684233ff8c358f6b74bb64c1a4fb690 (refs/remotes/origin/main)
+Checking out Revision e5f117f6fa22b24e8261024a97b9ef8e7a72c4fa (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f ec58a67b6684233ff8c358f6b74bb64c1a4fb690 # timeout=10
-Commit message: "Update Armageddon Repo Link to new URL"
- > git rev-list --no-walk 962393a34cd53cf750b46f68ce9bfa1cd6708cb5 # timeout=10
+ > git checkout -f e5f117f6fa22b24e8261024a97b9ef8e7a72c4fa # timeout=10
+Commit message: "Upgrade AWS provider lock file"
+ > git rev-list --no-walk 8ffbd6974862f3948913c8251e93eee924a9bae6 # timeout=10
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] withEnv
@@ -43,10 +43,10 @@ Fetching upstream changes from https://github.com/kilik42/jenkins-gcheck.git
  > git --version # 'git version 2.50.1'
  > git fetch --tags --force --progress -- https://github.com/kilik42/jenkins-gcheck.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
-Checking out Revision ec58a67b6684233ff8c358f6b74bb64c1a4fb690 (refs/remotes/origin/main)
+Checking out Revision e5f117f6fa22b24e8261024a97b9ef8e7a72c4fa (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f ec58a67b6684233ff8c358f6b74bb64c1a4fb690 # timeout=10
-Commit message: "Update Armageddon Repo Link to new URL"
+ > git checkout -f e5f117f6fa22b24e8261024a97b9ef8e7a72c4fa # timeout=10
+Commit message: "Upgrade AWS provider lock file"
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
@@ -61,8 +61,15 @@ Masking supported pattern matches of $AWS_ACCESS_KEY_ID or $AWS_SECRET_ACCESS_KE
 Successfully configured the backend "s3"! Terraform will automatically
 use this backend unless the backend configuration changes.[0m
 [0m[1mInitializing provider plugins...[0m
+- Reusing previous version of hashicorp/local from the dependency lock file
 - Reusing previous version of hashicorp/aws from the dependency lock file
-- Using previously-installed hashicorp/aws v5.100.0
+- Installing hashicorp/local v2.8.0...
+- Installed hashicorp/local v2.8.0 (signed by HashiCorp)
+- Installing hashicorp/aws v6.18.0...
+- Installed hashicorp/aws v6.18.0 (signed by HashiCorp)
+Terraform has made some changes to the provider dependency selections recorded
+in the .terraform.lock.hcl file. Review those changes and commit them to your
+version control system if they represent changes you intended to make.
 
 [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
 [Pipeline] }
@@ -77,6 +84,22 @@ Masking supported pattern matches of $AWS_ACCESS_KEY_ID or $AWS_SECRET_ACCESS_KE
 [Pipeline] sh
 + terraform plan -out=tfplan
 [0m[1maws_s3_bucket.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
+[0m[1maws_s3_bucket_ownership_controls.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
+[0m[1maws_s3_bucket_website_configuration.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
+[0m[1maws_s3_bucket_public_access_block.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
+[0m[1maws_s3_bucket_policy.public_read: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
+[0m[1maws_s3_object.index: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/index.html][0m
+[0m[1maws_s3_object.images["Pipeline Artifacts.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/Pipeline Artifacts.png][0m
+[0m[1maws_s3_object.images["Jenkins Pipeline Execution Console.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/Jenkins Pipeline Execution Console.png][0m
+[0m[1maws_s3_object.images["jenkins terraform deployment success.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/jenkins terraform deployment success.png][0m
+[0m[1maws_s3_object.images["S3 Bucket Root.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/S3 Bucket Root.png][0m
+[0m[1maws_s3_object.images["S3 Audit JSON.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/S3 Audit JSON.png][0m
+[0m[1maws_s3_object.images["webhooks.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/webhooks.png][0m
+[0m[1maws_s3_object.images["Audit Artifacts.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/Audit Artifacts.png][0m
+[0m[1maws_s3_object.images["S3 Audit Screenshot.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/S3 Audit Screenshot.png][0m
+[0m[1maws_s3_object.images["new_s3_bucket_items.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/new_s3_bucket_items.png][0m
+[0m[1maws_s3_object.text_files["console-output.txt.txt"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/console-output.txt.txt][0m
+[0m[1maws_s3_object.images["Jenkins Webhook Trigger Enabled.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/Jenkins Webhook Trigger Enabled.png][0m
 
 [0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
 
@@ -95,6 +118,11 @@ Masking supported pattern matches of $AWS_ACCESS_KEY_ID or $AWS_SECRET_ACCESS_KE
 + terraform apply -auto-approve tfplan
 [0m[1m[32m
 Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+[0mbucket_name = "jenkins-bucket-20260331031446811800000001"
+website_url = "jenkins-bucket-20260331031446811800000001.s3-website-us-east-1.amazonaws.com"
 [Pipeline] }
 [Pipeline] // withCredentials
 [Pipeline] }
@@ -105,12 +133,6 @@ Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
 [Pipeline] {
 [Pipeline] input
 Input requested
-Pausing (shutting down)
-Resuming build at Sat Apr 04 22:28:36 UTC 2026 after Jenkins restart
-Ready to run at Sat Apr 04 22:28:36 UTC 2026
-Pausing (shutting down)
-Resuming build at Wed Apr 08 23:10:07 UTC 2026 after Jenkins restart
-Ready to run at Wed Apr 08 23:10:07 UTC 2026
 Approved by marvin evins
 [Pipeline] echo
 Skipping destroy
