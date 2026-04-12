@@ -4,14 +4,14 @@
 
 ## Armageddon Repo Links
 
-- [Armageddon Repo Link](http://jenkins-bucket-20260331031446811800000001.s3-website-us-east-1.amazonaws.com/)
+- [Armageddon Repo Link](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/armageddon_repo.txt)
 - [Repo Validation](https://github.com/kilik42/armageddon_labs_2026)
-- [public_bucket](http://jenkins-bucket-20260331031446811800000001.s3-website-us-east-1.amazonaws.com)
+
 ---
 
 ##  Pipeline Artifacts (CI/CD Configuration)
 
-- [GitHub Webhook Configuration](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/pipeline/webhooks.png)
+- [GitHub Webhook Configuration](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/webhooks.png)
 - [Jenkins Webhook Trigger Enabled](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/pipeline/Jenkins+Webhook+Trigger+Enabled.png)
 
 ---
@@ -25,7 +25,7 @@
 
 ##  Jenkins Pipeline Execution Log
 
-- [Jenkins Pipeline Console Output](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/console-output.txt.txt)
+- [Jenkins Pipeline Console Output](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/console-output.txt.txt)
 
 ---
 
