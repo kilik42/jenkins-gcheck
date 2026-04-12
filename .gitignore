@@ -1,0 +1,33 @@
+# --- Terraform ---
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# --- Local environment files ---
+*.tfvars
+*.tfvars.json
+
+# --- AWS CLI artifacts ---
+*.zip
+
+# --- Jenkins ---
+# Workspace junk Jenkins may create
+workspace/
+builds/
+lastSuccessful/
+lastStable/
+*.log
+
+# --- OS / Editor junk ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
