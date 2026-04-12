@@ -18,7 +18,7 @@
 
 ##  Jenkins Execution
 
-- [Jenkins Terraform Deployment Success](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/jenkins+terraform+deployment+success.png)
+- [Jenkins Terraform Deployment Success](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/jenkins+terraform+deployment+success.png)
 - [Jenkins Pipeline Execution Console](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/Jenkins+Pipeline+Execution+Console.png)
 
 ---
