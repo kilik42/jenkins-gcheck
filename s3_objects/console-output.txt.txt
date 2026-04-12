@@ -1,4 +1,4 @@
-Started by user marvin evins
+Started by GitHub push by kilik42
 Obtained Jenkinsfile from git https://github.com/kilik42/jenkins-gcheck.git
 [Pipeline] Start of Pipeline
 [Pipeline] node
@@ -18,11 +18,11 @@ Fetching upstream changes from https://github.com/kilik42/jenkins-gcheck.git
  > git --version # 'git version 2.50.1'
  > git fetch --tags --force --progress -- https://github.com/kilik42/jenkins-gcheck.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
-Checking out Revision e5f117f6fa22b24e8261024a97b9ef8e7a72c4fa (refs/remotes/origin/main)
+Checking out Revision a13dd35b3878814f6ae5bcc441965b85e27cdaf5 (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f e5f117f6fa22b24e8261024a97b9ef8e7a72c4fa # timeout=10
-Commit message: "Upgrade AWS provider lock file"
- > git rev-list --no-walk 8ffbd6974862f3948913c8251e93eee924a9bae6 # timeout=10
+ > git checkout -f a13dd35b3878814f6ae5bcc441965b85e27cdaf5 # timeout=10
+Commit message: "working on the updates"
+ > git rev-list --no-walk e5f117f6fa22b24e8261024a97b9ef8e7a72c4fa # timeout=10
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] withEnv
@@ -43,10 +43,10 @@ Fetching upstream changes from https://github.com/kilik42/jenkins-gcheck.git
  > git --version # 'git version 2.50.1'
  > git fetch --tags --force --progress -- https://github.com/kilik42/jenkins-gcheck.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
-Checking out Revision e5f117f6fa22b24e8261024a97b9ef8e7a72c4fa (refs/remotes/origin/main)
+Checking out Revision a13dd35b3878814f6ae5bcc441965b85e27cdaf5 (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f e5f117f6fa22b24e8261024a97b9ef8e7a72c4fa # timeout=10
-Commit message: "Upgrade AWS provider lock file"
+ > git checkout -f a13dd35b3878814f6ae5bcc441965b85e27cdaf5 # timeout=10
+Commit message: "working on the updates"
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
@@ -61,15 +61,16 @@ Masking supported pattern matches of $AWS_ACCESS_KEY_ID or $AWS_SECRET_ACCESS_KE
 Successfully configured the backend "s3"! Terraform will automatically
 use this backend unless the backend configuration changes.[0m
 [0m[1mInitializing provider plugins...[0m
-- Reusing previous version of hashicorp/local from the dependency lock file
-- Reusing previous version of hashicorp/aws from the dependency lock file
+- Finding latest version of hashicorp/local...
+- Finding hashicorp/aws versions matching "~> 6.18.0"...
 - Installing hashicorp/local v2.8.0...
 - Installed hashicorp/local v2.8.0 (signed by HashiCorp)
 - Installing hashicorp/aws v6.18.0...
 - Installed hashicorp/aws v6.18.0 (signed by HashiCorp)
-Terraform has made some changes to the provider dependency selections recorded
-in the .terraform.lock.hcl file. Review those changes and commit them to your
-version control system if they represent changes you intended to make.
+Terraform has created a lock file [1m.terraform.lock.hcl[0m to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.[0m
 
 [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
 [Pipeline] }
@@ -84,27 +85,99 @@ Masking supported pattern matches of $AWS_ACCESS_KEY_ID or $AWS_SECRET_ACCESS_KE
 [Pipeline] sh
 + terraform plan -out=tfplan
 [0m[1maws_s3_bucket.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
-[0m[1maws_s3_bucket_ownership_controls.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
-[0m[1maws_s3_bucket_website_configuration.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
 [0m[1maws_s3_bucket_public_access_block.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
+[0m[1maws_s3_bucket_website_configuration.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
+[0m[1maws_s3_bucket_ownership_controls.frontend: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
 [0m[1maws_s3_bucket_policy.public_read: Refreshing state... [id=jenkins-bucket-20260331031446811800000001][0m
 [0m[1maws_s3_object.index: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/index.html][0m
+[0m[1maws_s3_object.text_files["console-output.txt.txt"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/console-output.txt.txt][0m
+[0m[1maws_s3_object.images["new_s3_bucket_items.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/new_s3_bucket_items.png][0m
 [0m[1maws_s3_object.images["Pipeline Artifacts.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/Pipeline Artifacts.png][0m
+[0m[1maws_s3_object.images["webhooks.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/webhooks.png][0m
 [0m[1maws_s3_object.images["Jenkins Pipeline Execution Console.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/Jenkins Pipeline Execution Console.png][0m
 [0m[1maws_s3_object.images["jenkins terraform deployment success.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/jenkins terraform deployment success.png][0m
-[0m[1maws_s3_object.images["S3 Bucket Root.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/S3 Bucket Root.png][0m
-[0m[1maws_s3_object.images["S3 Audit JSON.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/S3 Audit JSON.png][0m
-[0m[1maws_s3_object.images["webhooks.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/webhooks.png][0m
 [0m[1maws_s3_object.images["Audit Artifacts.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/Audit Artifacts.png][0m
-[0m[1maws_s3_object.images["S3 Audit Screenshot.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/S3 Audit Screenshot.png][0m
-[0m[1maws_s3_object.images["new_s3_bucket_items.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/new_s3_bucket_items.png][0m
-[0m[1maws_s3_object.text_files["console-output.txt.txt"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/console-output.txt.txt][0m
 [0m[1maws_s3_object.images["Jenkins Webhook Trigger Enabled.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/Jenkins Webhook Trigger Enabled.png][0m
+[0m[1maws_s3_object.images["S3 Audit JSON.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/S3 Audit JSON.png][0m
+[0m[1maws_s3_object.images["S3 Bucket Root.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/S3 Bucket Root.png][0m
+[0m[1maws_s3_object.images["S3 Audit Screenshot.png"]: Refreshing state... [id=jenkins-bucket-20260331031446811800000001/S3 Audit Screenshot.png][0m
 
-[0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+  [33m~[0m update in-place[0m
 
-[0mTerraform has compared your real infrastructure against your configuration
-and found no differences, so no changes are needed.
+Terraform will perform the following actions:
+
+[1m  # aws_s3_object.images["Jenkins Pipeline Execution Console.png"][0m will be updated in-place
+[0m  [33m~[0m[0m resource "aws_s3_object" "images" {
+      [33m~[0m[0m etag                          = "e0e4c53ef060b20fd65626fbf8d498d8" [33m->[0m[0m "368830197c6560e4ffc39f12217e6766"
+        id                            = "jenkins-bucket-20260331031446811800000001/Jenkins Pipeline Execution Console.png"
+        tags                          = {}
+      [32m+[0m[0m version_id                    = (known after apply)
+        [90m# (25 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_s3_object.images["armageddon_repo.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "images" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = "jenkins-bucket-20260331031446811800000001"
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_crc64nvme     = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "2bcc59ffdc1a736a1b8a49e30cfd4ad7"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "armageddon_repo.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m region                 = "us-east-1"
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "./s3_objects/armageddon_repo.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.text_files["armageddon_repo.txt"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "text_files" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = "jenkins-bucket-20260331031446811800000001"
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_crc64nvme     = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/plain"
+      [32m+[0m[0m etag                   = "4710aa035d92de7ac08fbd46e1cdc58f"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "armageddon_repo.txt"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m region                 = "us-east-1"
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "./s3_objects/armageddon_repo.txt"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.text_files["console-output.txt.txt"][0m will be updated in-place
+[0m  [33m~[0m[0m resource "aws_s3_object" "text_files" {
+      [33m~[0m[0m etag                          = "2acdfe2a3d7e9be84c5cfe1bfccc7cfc" [33m->[0m[0m "e59279ea870a89b2bcaf7647861e825c"
+        id                            = "jenkins-bucket-20260331031446811800000001/console-output.txt.txt"
+        tags                          = {}
+      [32m+[0m[0m version_id                    = (known after apply)
+        [90m# (25 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m2 to add, 2 to change, 0 to destroy.
 [Pipeline] }
 [Pipeline] // withCredentials
 [Pipeline] }
@@ -116,8 +189,16 @@ Masking supported pattern matches of $AWS_ACCESS_KEY_ID or $AWS_SECRET_ACCESS_KE
 [Pipeline] {
 [Pipeline] sh
 + terraform apply -auto-approve tfplan
+[0m[1maws_s3_object.text_files["armageddon_repo.txt"]: Creating...[0m[0m
+[0m[1maws_s3_object.images["armageddon_repo.png"]: Creating...[0m[0m
+[0m[1maws_s3_object.images["Jenkins Pipeline Execution Console.png"]: Modifying... [id=jenkins-bucket-20260331031446811800000001/Jenkins Pipeline Execution Console.png][0m[0m
+[0m[1maws_s3_object.text_files["console-output.txt.txt"]: Modifying... [id=jenkins-bucket-20260331031446811800000001/console-output.txt.txt][0m[0m
+[0m[1maws_s3_object.text_files["armageddon_repo.txt"]: Creation complete after 0s [id=jenkins-bucket-20260331031446811800000001/armageddon_repo.txt][0m
+[0m[1maws_s3_object.text_files["console-output.txt.txt"]: Modifications complete after 0s [id=jenkins-bucket-20260331031446811800000001/console-output.txt.txt][0m
+[0m[1maws_s3_object.images["Jenkins Pipeline Execution Console.png"]: Modifications complete after 0s [id=jenkins-bucket-20260331031446811800000001/Jenkins Pipeline Execution Console.png][0m
+[0m[1maws_s3_object.images["armageddon_repo.png"]: Creation complete after 0s [id=jenkins-bucket-20260331031446811800000001/armageddon_repo.png][0m
 [0m[1m[32m
-Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+Apply complete! Resources: 2 added, 2 changed, 0 destroyed.[0m
 [0m[1m[32m
 Outputs:
 
@@ -128,7 +209,7 @@ website_url = "jenkins-bucket-20260331031446811800000001.s3-website-us-east-1.am
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
-[Pipeline] { (Optional Destroy)
+[Pipeline] { (Optional Destroy) (hide)
 [Pipeline] script
 [Pipeline] {
 [Pipeline] input
