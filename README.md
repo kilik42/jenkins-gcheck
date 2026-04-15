@@ -5,7 +5,7 @@
 ## Armageddon Repo Links
 
 - [Armageddon Repo Link](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/armageddon_repo.txt)
-- [Repo Validation](https://github.com/kilik42/armageddon_labs_2026)
+- [Repo Validation](https://github.com/kilik42/jenkins-gcheck/blob/main/s3_objects/repo%20extension%20evidence.png)
 
 ---
 
@@ -18,7 +18,7 @@
 
 ##  Jenkins Execution
 
-- [Jenkins Terraform Deployment Success](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/jenkins+terraform+deployment+success.png)
+- [Jenkins Terraform Deployment Success](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/jenkins+terraform+deployment+success.png)
 - [Jenkins Pipeline Execution Console](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/audit/Jenkins+Pipeline+Execution+Console.png)
 
 ---
