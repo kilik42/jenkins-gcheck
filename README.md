@@ -5,7 +5,7 @@
 ## Armageddon Repo Links
 
 - [Armageddon Repo Link](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/armageddon_repo.txt)
-- [Repo Validation](https://github.com/kilik42/jenkins-gcheck/blob/main/s3_objects/repo%20extension%20evidence.png)
+- [Repo Validation](https://jenkins-bucket-20260331031446811800000001.s3.us-east-1.amazonaws.com/repo+extension+evidence.png)
 
 ---
 
